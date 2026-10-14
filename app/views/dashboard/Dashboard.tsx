@@ -10,6 +10,14 @@ import ps from "../../../public/company_images/ps.png";
 import xbox from "../../../public/company_images/xbox.png";
 import steam from "../../../public/company_images/steam.png";
 import epic from "../../../public/company_images/spic.png";
+import {
+  FaFacebook,
+  FaDiscord,
+  FaXTwitter,
+  FaReddit,
+  FaLinkedin,
+  FaRegCopyright,
+} from "react-icons/fa6";
 
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
@@ -18,6 +26,7 @@ import Reveal from "../reveal/Reveal";
 
 const navbarBtns = [
   {
+    id: 1,
     label: "Creators",
     href: "/",
     items: [
@@ -49,13 +58,14 @@ const navbarBtns = [
     ],
   },
   {
+    id: 2,
     label: "Gamers",
     href: "/",
   },
-  { label: "Game Studios", href: "/" },
-  { label: "Advertisers", href: "/" },
-  { label: "Company", href: "/" },
-  { label: "Careers", href: "/" },
+  { id: 3, label: "Game Studios", href: "/" },
+  { id: 4, label: "Advertisers", href: "/" },
+  { id: 5, label: "Company", href: "/" },
+  { id: 6, label: "Careers", href: "/" },
 ];
 
 const playingAmount = [
@@ -141,10 +151,15 @@ const DashBoard = () => {
     video.play().catch(() => {});
   }, []);
 
+  const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
     <div className="h-full relative">
       <nav className="h-25 bg-[#171717] flex justify-between px-4 sticky top-0 z-50">
-        <div className="flex items-center">
+        <button
+          className="flex items-center cursor-pointer"
+          onClick={() => scrollTop()}
+        >
           <Image
             src={wolfLogo}
             width={100}
@@ -154,11 +169,11 @@ const DashBoard = () => {
           <span className="text-3xl font-heading tracking-wider font-semibold">
             Meanwolf
           </span>
-        </div>
+        </button>
         <div className="flex gap-20 items-center">
           {navbarBtns.map((btn) => (
             <div
-              key={btn.label}
+              key={btn.id}
               className="relative group h-full flex items-center"
             >
               <Link
@@ -228,7 +243,7 @@ const DashBoard = () => {
           </Reveal>
           <Reveal delay={200}>
             <p className="font-body text-xl text-gray-300">
-              Join millions of gamers and creators using Overwolf every day.
+              Join millions of gamers and creators using Meanwolf every day.
             </p>
           </Reveal>
           <Reveal delay={400}>
@@ -463,6 +478,34 @@ const DashBoard = () => {
           ))}
         </div>
       </section>
+      {/* footer */}
+      <footer className="flex justify-between items-center bg-neutral-900 h-40">
+        <div className="flex items-center">
+          <Image
+            src={wolfLogo}
+            alt="wolf-logo"
+            className="h-40 w-auto object-contain"
+          />
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 ">
+              <FaRegCopyright className="h-5 w-auto text-neutral-400 hover:text-white transition duration-200" />
+              <p className="text-xl text-neutral-400 font-body hover:text-white transition duration-200">
+                2026 Meanwolf. All rights reserved.
+              </p>
+            </div>
+            <p className="text-xl text-neutral-400 font-body hover:text-white transition duration-200">
+              By Mr.Phanthavy Litthavong
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-8">
+          <FaFacebook className="h-10 w-auto text-neutral-400 hover:text-white cursor-pointer transition duration-200" />
+          <FaDiscord className="h-12 w-auto text-neutral-400 hover:text-white cursor-pointer transition duration-200" />
+          <FaXTwitter className="h-10 w-auto text-neutral-400 hover:text-white cursor-pointer transition duration-200" />
+          <FaReddit className="h-10 w-auto text-neutral-400 hover:text-white cursor-pointer transition duration-200" />
+          <FaLinkedin className="h-11 w-auto text-neutral-400 hover:text-white cursor-pointer transition duration-200" />
+        </div>
+      </footer>
     </div>
   );
 };
