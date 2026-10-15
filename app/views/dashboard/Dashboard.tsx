@@ -224,6 +224,7 @@ const DashBoard = () => {
         <video
           ref={ref}
           src="/background_videos/video1.mp4"
+          poster="/background_videos/video1-poster.jpg"
           autoPlay
           muted
           loop
@@ -290,7 +291,6 @@ const DashBoard = () => {
       {/* section2 */}
       <section className="relative h-[calc(100vh-6.25rem)] w-full overflow-hidden">
         <video
-          ref={ref}
           src="/background_videos/video2.mp4"
           autoPlay
           muted
@@ -358,7 +358,6 @@ const DashBoard = () => {
       {/* section3 */}
       <section className="relative h-[calc(100vh-6.25rem)] w-full overflow-hidden">
         <video
-          ref={ref}
           src="/background_videos/video4.mp4"
           autoPlay
           muted
@@ -403,7 +402,6 @@ const DashBoard = () => {
       {/* section4 */}
       <section className="relative h-[calc(100vh-6.25rem)] w-full overflow-hidden bg-black">
         <video
-          ref={ref}
           src="/background_videos/video3.mp4"
           autoPlay
           muted
