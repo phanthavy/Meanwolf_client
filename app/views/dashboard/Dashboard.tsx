@@ -24,6 +24,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Reveal from "../reveal/Reveal";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const navbarBtns = [
   {
     id: 1,
@@ -223,8 +225,8 @@ const DashBoard = () => {
       <section className="relative h-[calc(100vh-6.25rem)] w-full overflow-hidden">
         <video
           ref={ref}
-          src="/background_videos/video1.mp4"
-          poster="/background_videos/video1-poster.jpg"
+          src={`${basePath}/background_videos/video1.mp4`}
+          poster={`${basePath}/background_videos/video1-poster.jpg`}
           autoPlay
           muted
           loop
@@ -291,7 +293,7 @@ const DashBoard = () => {
       {/* section2 */}
       <section className="relative h-[calc(100vh-6.25rem)] w-full overflow-hidden">
         <video
-          src="/background_videos/video2.mp4"
+          src={`${basePath}/background_videos/video2.mp4`}
           autoPlay
           muted
           loop
@@ -358,7 +360,7 @@ const DashBoard = () => {
       {/* section3 */}
       <section className="relative h-[calc(100vh-6.25rem)] w-full overflow-hidden">
         <video
-          src="/background_videos/video4.mp4"
+          src={`${basePath}/background_videos/video4.mp4`}
           autoPlay
           muted
           loop
@@ -402,7 +404,7 @@ const DashBoard = () => {
       {/* section4 */}
       <section className="relative h-[calc(100vh-6.25rem)] w-full overflow-hidden bg-black">
         <video
-          src="/background_videos/video3.mp4"
+          src={`${basePath}/background_videos/video3.mp4`}
           autoPlay
           muted
           loop
